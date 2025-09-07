@@ -4,7 +4,7 @@ body {
     background-color: #f3f4f6;
 }
 
-/*Card hover*/
+/* Card hover */
 .card-glow {
     transition: all 0.3s ease-in-out;
 }
@@ -14,14 +14,14 @@ body {
     transform: translateY(-5px);
 }
 
-/*Button hover*/
+/* Button hover */
 .btn-hover:hover {
     background-color: #0d9488;
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/*scroolbar*/
+/*scrollbar */
 ::-webkit-scrollbar {
     inline-size: 8px;
 }
@@ -70,7 +70,8 @@ body {
 .bg-red-200 {
     background-color: #fecaca;
 }
-/* for pass strength*/
+
+/* background colors password strength */
 .bg-gray-400 {
     background-color: #9ca3af;
 }
@@ -95,7 +96,7 @@ body {
     background-color: #14b8a6;
 }
 
-/* Text color */
+/* Text colors password strength */
 .text-gray-400 {
     color: #9ca3af;
 }
