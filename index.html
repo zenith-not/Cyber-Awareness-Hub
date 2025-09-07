@@ -8,23 +8,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100 text-grey-900">
 
     <!--Header-->
-    <header class="py-6 px-4 md:px-8 bg-white sticky top-0 z-50 shadow-lg">
-        <nav class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-teal-600">CyberShield</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#phishing" class="hover:text-teal-600 transition-colors">Phishing</a>
-                <a href="#passwords" class="hover:text-teal-600 transition-colors">Passwords</a>
-                <a href="#2fa" class="hover:text-teal-600 transition-colors">2FA</a>
-                <a href="#wifi" class="hover:text-teal-600 transition-colors">Wi-Fi Safety</a>
-                <a href="#antivirus" class="hover:text-teal-600 transition-colors">Antivirus</a>
-                <a href="#backup-data" class="hover:text-teal-600 transition-colors">Backup Data</a>
-                <a href="#quiz" class="hover:text-teal-600 transition-colors">Quiz</a>
-                <a href="#team" class="hover:text-teal-600 transition-colors">Team</a>
+    <header class="py-6 px-4 md:px-8 bg-white sticky top-0 z-50 shadow-lg rounded-b-xl">
+    <nav class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-teal-600">CyberShield</a>
+        <div class="hidden md:flex space-x-6">
+            <a href="#cyber-tips" class="hover:text-teal-600 transition-colors">Cyber Tips</a>
+            <a href="#quiz" class="hover:text-teal-600 transition-colors">Quiz</a>
+            <a href="#cyber-tools" class="hover:text-teal-600 transition-colors">Cyber Tools</a>
+            <a href="#team" class="hover:text-teal-600 transition-colors">Team</a>
             </div>
         </nav>
     </header>
@@ -54,20 +50,20 @@
       <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Essential Cyber Tips</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Phishing Section -->
-                <div id="phishing" class="bg-white p-8 rounded-lg shadow-xl card-glow">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-10 h-10 text-red-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.395 2.545a1 1 0 00-1.282-1.282l-8 8a1 1 0 00-.226 1.053l1.896 4.74A1 1 0 006 17h10a1 1 0 00.957-1.353l-2.454-6.136a1 1 0 00-1.611-.277l-4.22 4.22-1.295-1.295a1 1 0 010-1.414L10.988 5.48a1 1 0 011.414 1.414l-2.4 2.4a1 1 0 00-.18.736l.24 1.2a1 1 0 001.69.576l4.22-4.22a1 1 0 00-.277-1.61L12.395 2.545z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-2xl font-semibold text-gray-900">Phishing Scams</h3>
-                    </div>
-                    <p class="text-gray-600">
-                        Be careful with unexpected emails, messages, or calls. Don’t click on strange links or download files from people you don’t know. Always double check where it’s coming from.
+        <div id="phishing" class="bg-white p-8 rounded-lg shadow-xl card-glow">
+            <div class="flex items-center mb-4">
+                <svg class="w-10 h-10 text-red-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.395 2.545a1 1 0 00-1.282-1.282l-8 8a1 1 0 00-.226 1.053l1.896 4.74A1 1 0 006 17h10a1 1 0 00.957-1.353l-2.454-6.136a1 1 0 00-1.611-.277l-4.22 4.22-1.295-1.295a1 1 0 010-1.414L10.988 5.48a1 1 0 011.414 1.414l-2.4 2.4a1 1 0 00-.18.736l.24 1.2a1 1 0 001.69.576l4.22-4.22a1 1 0 00-.277-1.61L12.395 2.545z" clip-rule="evenodd"></path></svg>
+                <h3 class="text-2xl font-semibold text-gray-900">Phishing Scams</h3>
+                </div>
+                <p class="text-gray-600">
+                    Be careful with unexpected emails, messages, or calls. Don’t click on strange links or download files from people you don’t know. Always double check where it’s coming from.
                     </p>
                 </div>
 <!-- Strong Passwords Section -->                
                 
-                <div id="passwords" class="bg-white p-8 rounded-lg shadow-xl card-glow">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-10 h-10 text-purple-600 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 8a6 6 0 01-7.141 5.867l-2.38 2.38a1 1 0 11-1.414-1.414l2.38-2.38A6 6 0 1118 8zm-2 0a4 4 0 10-8 0 4 4 0 008 0z" clip-rule="evenodd"></path></svg>
+    <div id="passwords" class="bg-white p-8 rounded-lg shadow-xl card-glow">
+        <div class="flex items-center mb-4">
+            <svg class="w-10 h-10 text-purple-600 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 8a6 6 0 01-7.141 5.867l-2.38 2.38a1 1 0 11-1.414-1.414l2.38-2.38A6 6 0 1118 8zm-2 0a4 4 0 10-8 0 4 4 0 008 0z" clip-rule="evenodd"></path></svg>
                         <h3 class="text-2xl font-semibold text-gray-900">Strong Passwords</h3>
                     </div>
                     <p class="text-gray-600">
@@ -109,56 +105,52 @@
                 </div>
 
 <!-- Virus Section -->
-                <div id="antivirus" class="bg-white p-8 rounded-lg shadow-xl card-glow">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-10 h-10 text-teal-600 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.25l-8 4.5v9.5l8 4.5 8-4.5v-9.5l-8-4.5zm0 2.25l6 3.375v7.25l-6 3.375-6-3.375v-7.25l6-3.375z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
-                        <h3 class="text-2xl font-semibold text-gray-900">Use Antivirus Software</h3>
-                    </div>
-                    <p class="text-gray-600">
-                        Install antivirus software on all your devices and keep it updated. It helps find and remove viruses, malware, and other harmful programs before they can cause trouble.
-                    </p>
-                </div>
-            </div>
+        <div id="antivirus" class="bg-white p-8 rounded-lg shadow-xl card-glow">
+            <div class="flex items-center mb-4">
+                <svg class="w-10 h-10 text-teal-600 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.25l-8 4.5v9.5l8 4.5 8-4.5v-9.5l-8-4.5zm0 2.25l6 3.375v7.25l-6 3.375-6-3.375v-7.25l6-3.375z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                <h3 class="text-2xl font-semibold text-gray-900">Use Antivirus Software</h3>
+        </div>
+            <p class="text-gray-600">
+            Install antivirus software on all your devices and keep it updated. It helps find and remove viruses, malware, and other harmful programs before they can cause trouble.
+            </p>
         </section>
-
-        <hr class="my-12 border-gray-300">
-      </div>
-    </section>
-
     <hr class="my-12 border-gray-300">
 
     <!-- Interactive Quiz Section -->
     <section id="quiz" class="py-12">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Test Your Knowledge</h2>
-            <div class="bg-white p-8 rounded-lg shadow-xl max-w-2xl mx-auto">
-                <form id="cyber-quiz">
-                    <div class="mb-6">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Test Your Knowledge</h2>
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-2xl mx-auto">
+            <form id="cyber-quiz">
+                <div class="mb-6">
 
     <!-- Question 1 -->
-                        <p class="text-lg font-semibold mb-2">1. What is phishing?</p>
-                        <label class="block mb-2">
-                            <input type="radio" name="q1" value="A" class="mr-2"> A) A type of online fishing game.
-                        </label>
-                        <label class="block mb-2">
-                            <input type="radio" name="q1" value="B" class="mr-2"> B) A malicious attempt to get sensitive information by disguising as a trustworthy entity.
-                        </label>
-                        <label class="block mb-2">
-                            <input type="radio" name="q1" value="C" class="mr-2"> C) A program that helps you organize your files.
-                        </label>
-                    </div>
+     <div class="mb-6">
+        <p class="text-lg font-semibold mb-2">1. What is phishing?</p>
+        <label class="block mb-2">
+            <input type="radio" name="q1" value="A" class="mr-2"> A type of online fishing game.
+        </label>
+        <label class="block mb-2">
+            <input type="radio" name="q1" value="B" class="mr-2"> A malicious attempt to get sensitive information by disguising as a trustworthy entity.
+        </label>
+        <label class="block mb-2">
+            <input type="radio" name="q1" value="C" class="mr-2"> A program that helps you organize your files.
+        </label>
+        <p class="text-sm italic mt-2 hidden" id="q4-feedback"></p>
+        </div>
 
     <!-- Question 2 -->
      <div class="mb-6">
         <p class="text-lg font-semibold mb-2">2. Which of the following is an example of a strong password?</p>
         <label class="block mb-2">
-            <input type="radio" name="q2" value="A" class="mr-2"> A) 12345678
+            <input type="radio" name="q2" value="A" class="mr-2"> 12345678
         </label>
         <label class="block mb-2">
-            <input type ="radio" name="q2" value="B" class="mr-2"> B) password
+            <input type ="radio" name="q2" value="B" class="mr-2"> password
         </label>
         <label class="block mb-2">
-            <input type="radio" name="q2" value="C" class="mr-2"> C) MyP@ssword!2025
+            <input type="radio" name="q2" value="C" class="mr-2"> MyP@ssword!2025
         </label>
+        <p class="text-sm italic mt-2 hidden" id="q4-feedback"></p>
      </div>
 
 
@@ -167,36 +159,90 @@
      <div class="mb-6">
         <p class ="text-lg font-seminold mb-2">3. What does 2FA stands for?</p>
         <label class="block mb-2">
-            <input type="radio" name="q3" value="A" class="mr-2"> A) Two-Factor Authentication
+            <input type="radio" name="q3" value="A" class="mr-2"> Two-Factor Authentication
         </label>
         <label class="block mb-2">
-            <input type="radio" name="q3" value="B" class="mr-2"> B) Two-File Access
+            <input type="radio" name="q3" value="B" class="mr-2"> Two-File Access
         </label>
         <label class="block mb-2">
-            <input type="radio"  name="q3" value="C" class="mr-2"> C) Time-Based Frequency
+            <input type="radio"  name="q3" value="C" class="mr-2"> Time-Based Frequency
         </label>
+        <p class="text-sm italic mt-2 hidden" id="q4-feedback"></p>
      </div>
 
      <!-- Question 4-->
       <div class="mb-6">
         <p class="text-lg font-semibold mb-2">4. When using public Wi-Fi, what should you do to protect your data?</p>
+        <label class="block mb-2">
+            <input type="radio" name="q4" value="A" class="mr-2"> Accept all pop-ups and notifications
+        </label>
+        <label class="block mb-2">
+            <input type="radio" name="q4" value="B" class="mr-2"> Log into your banking accouunt to check your balance
+        </label>
+        <label class="block mb-2">
+            <input type="radio" name="q4" value="C" class="mr-2"> Use a VPN to encrypt your connection
+        </label>
+        <p class="text-sm italic mt-2 hidden" id="q4-feedback"></p>
       </div>
+
+      <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 rounded-md transition-all btn-hover shadow-lg">
+                    Submit Answers
+                </button>
+            </form>
+            <div id="quiz-results" class="mt-8 p-4 bg-gray-200 rounded-lg hidden">
+                <p id="score-text" class="text-center text-xl font-bold"></p>
+            </div>
+        </div>
+    </section>
+    
     <!-- Team Section -->
     <section id="team" class="py-12">
-      <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Meet the Team</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-    
-      </div>
-    </section>
-  </main>
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Meet the Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- Team Member 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
+                <img src="images/birendra.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
+                <h3 class="text-2xl font-semibold text-gray-900">Birendra Joshi</h3>
+                <p class="text-teal-600">Cyber Leader</p>
+                <p class="text-gray-600 mt-2 text-sm">Birendra specializes a cyber leader who inspires and leads others to stay safe in the digital world by promoting awareness and responsible online behavior.</p>
+            </div>
+
+            <!-- Team Member 2 -->
+             <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
+                <img src="images/isman.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
+                <h4 xlass="text-2xl font-semibold text-gray-900">Isman Adhikari</h4>
+                <p class="text-teal-600">Cyber Consultant</p>
+                <p class="text-gray-600 mt-2 text-sm">Isman specializes a cyber consultant who helps people stay safe in the digital world by giving tips, solutions, and guidance on online security.</p>
+             </div>
+
+             <!-- Team Member 3 -->
+             <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
+                <img src="images/zenith.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
+                <h5 xlass="text-2xl font-semibold text-gray-900">Zenith Aryal</h5>
+                <p class="text-teal-600">Cyber Educator</p>
+                <p class="text-gray-600 mt-2 text-sm">Zenith specializes a cyber educator who teaches people about safe online habits in a simple and clear way. They help others understand how to protect themselves from digital risks and build smart cyber practices.</p>
+             </div>
+
+             <!-- Team Member 4 -->
+             <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
+                <img src="images/aadar.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
+                <h6 xlass="text-2xl font-semibold text-gray-900">Aadar Poudel</h6>
+                <p class="text-teal-600">Cyber Researcher</p>
+                <p class="text-gray-600 mt-2 text-sm">Aadar Specialises a cyber researchers who gather facts and real examples to help people understand online risks clearly.</p>
+             </div>
+            </section>
+            </main>
+
 
   <!-- Footer -->
-  <footer class="bg-white text-center py-6 text-gray-600 border-t border-gray-300">
-    <p>&copy; 2025 CyberAware | Empowering you to stay safe online.</p>
-    <p>&copy; Disclaimer: The information provided is for educational purposes only.</p>
-  </footer>
+<footer class="bg-white text-center py-6 text-gray-600 border-t border-gray-300 rounded-t-xl mt-8">
+    <div class="container mx-auto px-4">
+        <p>&copy; 2025 CyberShield | Empowering you to stay safe online.</p>
+        <p class="text-sm mt-2">Disclaimer: The information provided is for educational purposes only.</p>
+    </div>
+</footer>
 
   <script src="js/script.js"></script>
 </body>
 </html>
-
