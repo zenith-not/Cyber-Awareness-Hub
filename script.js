@@ -1,20 +1,19 @@
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Quiz functionality
+    // Quiz 
     const quizForm = document.getElementById('cyber-quiz');
     const quizResults = document.getElementById('quiz-results');
     const scoreText = document.getElementById('score-text');
     
-    // Quiz answers (correct answers)
+    // Quiz answers 
     const correctAnswers = {
-        q1: 'B', // Phishing is a malicious attempt to get sensitive information
-        q2: 'C', // MyP@ssw0rd!2025 is the strong password
-        q3: 'A', // 2FA stands for Two-Factor Authentication
-        q4: 'C'  // Use a VPN to encrypt your connection
+        q1: 'B', 
+        q2: 'C', 
+        q3: 'A', 
+        q4: 'C'  
     };
     
-    // Handle quiz form submission
+    // Handle quiz 
     if (quizForm) {
         quizForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let score = 0;
             let totalQuestions = Object.keys(correctAnswers).length;
             
-            // Check each answer
+            // Check 
             for (let question in correctAnswers) {
                 const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
                 if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
@@ -30,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Calculate percentage
+            // Calculate 
             const percentage = (score / totalQuestions) * 100;
             
             // Display results
             quizResults.classList.remove('hidden');
             scoreText.textContent = `You scored ${score} out of ${totalQuestions} (${percentage}%)`;
             
-            // Add color coding based on score
+            
             quizResults.className = 'mt-8 p-4 rounded-lg';
             if (percentage >= 80) {
                 quizResults.classList.add('bg-green-200', 'text-green-800');
@@ -50,16 +49,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 scoreText.textContent += ' - Keep studying! Cyber security is important.';
             }
             
-            // Scroll to results
+            
             quizResults.scrollIntoView({ behavior: 'smooth' });
         });
     }
     
-    // Handle radio button visual feedback
+ 
     const radioButtons = document.querySelectorAll('.quiz-option input[type="radio"]');
     radioButtons.forEach(radio => {
         radio.addEventListener('change', function() {
-            // Remove selected state from all options in this question
+           
             const questionName = this.name;
             const allOptionsForQuestion = document.querySelectorAll(`input[name="${questionName}"]`);
             
@@ -68,13 +67,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const label = option.closest('.quiz-option');
                 
                 if (option === this) {
-                    // Add selected state
+                    
                     circle.style.opacity = '1';
                     label.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
                     label.style.color = 'white';
                     label.style.borderColor = '#667eea';
                 } else {
-                    // Remove selected state
+                    
                     circle.style.opacity = '0';
                     label.style.background = '';
                     label.style.color = '';
@@ -122,11 +121,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function updatePasswordStrengthDisplay(strength) {
         const { score, feedback } = strength;
         
-        // Update progress bar
+        
         const percentage = (score / 5) * 100;
         strengthBar.style.width = percentage + '%';
         
-        // Update colors and text
+       
         if (score === 0) {
             strengthBar.style.background = '#e5e7eb';
             strengthText.textContent = 'Enter a password';
@@ -167,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             generatedPassword.select();
             document.execCommand('copy');
             
-            // Visual feedback
+            
             const originalText = copyBtn.innerHTML;
             copyBtn.innerHTML = '✓';
             copyBtn.style.background = '#10b981';
@@ -188,23 +187,23 @@ document.addEventListener('DOMContentLoaded', function() {
         let password = '';
         const allChars = lowercase + uppercase + numbers + symbols;
         
-        // Ensure at least one character from each category
+      
         password += lowercase[Math.floor(Math.random() * lowercase.length)];
         password += uppercase[Math.floor(Math.random() * uppercase.length)];
         password += numbers[Math.floor(Math.random() * numbers.length)];
         password += symbols[Math.floor(Math.random() * symbols.length)];
         
-        // Fill the rest randomly (12-16 characters total)
+       
         const remainingLength = Math.floor(Math.random() * 5) + 8; // 8-12 additional chars
         for (let i = password.length; i < remainingLength; i++) {
             password += allChars[Math.floor(Math.random() * allChars.length)];
         }
         
-        // Shuffle the password
+       
         return password.split('').sort(() => Math.random() - 0.5).join('');
     }
     
-    // URL Checker (Simulated)
+    // URL Checker 
     const urlInput = document.getElementById('url-input');
     const checkUrlBtn = document.getElementById('check-url-btn');
     const urlStatus = document.getElementById('url-status');
@@ -223,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulate URL checking
+          
             checkUrlBtn.textContent = 'Checking...';
             checkUrlBtn.disabled = true;
             
@@ -247,13 +246,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function simulateUrlCheck(url) {
-        // Simulate some basic checks (this is for demonstration only)
+        
         const suspiciousKeywords = ['phishing', 'malware', 'virus', 'hack', 'steal'];
         const safeDomains = ['google.com', 'microsoft.com', 'apple.com', 'github.com', 'stackoverflow.com'];
         
         const urlLower = url.toLowerCase();
         
-        // Check for suspicious keywords
+       
         if (suspiciousKeywords.some(keyword => urlLower.includes(keyword))) {
             return {
                 type: 'error',
@@ -261,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         }
         
-        // Check for known safe domains
+
         if (safeDomains.some(domain => urlLower.includes(domain))) {
             return {
                 type: 'success',
@@ -269,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         }
         
-        // Random simulation for other URLs
+        
         const random = Math.random();
         if (random < 0.7) {
             return {
@@ -302,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Smooth scrolling for navigation links
+    
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -319,18 +318,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Mobile menu toggle (if needed)
+    // Mobile menu toggle 
     const mobileMenuBtn = document.querySelector('.md\\:hidden button');
     const mobileMenu = document.querySelector('.hidden.md\\:flex');
     
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', function() {
-            // This would toggle mobile menu if it was implemented
+          
             console.log('Mobile menu toggle clicked');
         });
     }
     
-    // Intersection Observer for fade-in animations
+    // Intersection Observer 
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -345,13 +344,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    // Observe all fade-in elements
+    
     const fadeElements = document.querySelectorAll('.fade-in');
     fadeElements.forEach(el => {
         observer.observe(el);
     });
     
-    // Add some interactive feedback for buttons
+   
     const buttons = document.querySelectorAll('button, .btn-gradient, .glass-card');
     buttons.forEach(button => {
         button.addEventListener('mouseenter', function() {
@@ -371,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add loading animation for tools
+   
     const toolInputs = document.querySelectorAll('#url-input, #password-strength-input, #generated-password');
     toolInputs.forEach(input => {
         input.addEventListener('focus', function() {
@@ -383,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add some visual feedback for the cyber tips cards
+
     const tipCards = document.querySelectorAll('.card-hover');
     tipCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -401,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Initialize tooltips or help text (if needed)
+   
     const helpButtons = document.querySelectorAll('[data-help]');
     helpButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -410,9 +409,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add keyboard navigation support
+   
     document.addEventListener('keydown', function(e) {
-        // Escape key to close any open modals or reset forms
+        
         if (e.key === 'Escape') {
             const openModals = document.querySelectorAll('.modal.open');
             openModals.forEach(modal => {
@@ -420,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Enter key to submit forms when focused on inputs
+     
         if (e.key === 'Enter' && e.target.tagName === 'INPUT') {
             const form = e.target.closest('form');
             if (form) {
@@ -432,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Performance optimization: Lazy load images
+    
     const images = document.querySelectorAll('img');
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -453,17 +452,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Add some console messages for developers
+    
     console.log('🔒 CyberShield loaded successfully!');
     console.log('🛡️ Stay safe online!');
     
-    // Simple analytics tracking (placeholder)
+   
     function trackEvent(eventName, eventData = {}) {
         console.log(`📊 Event tracked: ${eventName}`, eventData);
-        // In a real application, you would send this data to your analytics service
+        
     }
     
-    // Track quiz completion
+  
     if (quizForm) {
         quizForm.addEventListener('submit', function() {
             trackEvent('quiz_completed', {
@@ -472,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Track tool usage
+  
     if (generateBtn) {
         generateBtn.addEventListener('click', function() {
             trackEvent('password_generated');
@@ -485,39 +484,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Error handling for the entire application
+   
     window.addEventListener('error', function(e) {
         console.error('🚨 Application error:', e.error);
-        // In production, you might want to send this to an error reporting service
+       
     });
     
-    // Service Worker registration (for PWA functionality if needed)
+ 
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-            // Uncomment if you have a service worker
-            // navigator.serviceWorker.register('/sw.js')
-            //     .then(registration => console.log('SW registered'))
-            //     .catch(error => console.log('SW registration failed'));
+         
         });
     }
 });
 
-// Utility functions that can be used globally
+
 window.CyberShield = {
-    // Utility function to validate email
+   
     validateEmail: function(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     },
     
-    // Utility function to sanitize input
+ 
     sanitizeInput: function(input) {
         const div = document.createElement('div');
         div.textContent = input;
         return div.innerHTML;
     },
     
-    // Utility function to generate random string
+   
     generateRandomString: function(length = 10) {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let result = '';
@@ -527,12 +523,12 @@ window.CyberShield = {
         return result;
     },
     
-    // Utility function to check if device is mobile
+   
     isMobile: function() {
         return window.innerWidth <= 768;
     },
     
-    // Utility function to format date
+   
     formatDate: function(date) {
         return new Date(date).toLocaleDateString('en-US', {
             year: 'numeric',
@@ -540,4 +536,5 @@ window.CyberShield = {
             day: 'numeric'
         });
     }
+
 };
