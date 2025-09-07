@@ -6,266 +6,398 @@
     <title>Cyber Awareness Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: var(--primary-gradient);
+        }
+
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-gradient {
+            background: var(--accent-gradient);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.4);
+        }
+
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .icon-bounce {
+            transition: transform 0.3s ease;
+        }
+
+        .icon-bounce:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .progress-bar {
+            height: 6px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #ff4757, #ffa502, #2ed573, #5352ed);
+            transition: width 0.3s ease;
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid transparent;
+        }
+
+        .card-hover:hover {
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+        }
+
+        .team-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .team-card:hover::before {
+            left: 100%;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .quiz-option {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            border-color: #667eea;
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            transform: translateX(5px);
+        }
+
+        .quiz-option input[type="radio"]:checked + label {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: #667eea;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-gray-800 min-h-screen">
 
 <!-- Header -->
-<header class="py-6 px-4 md:px-8 bg-white sticky top-0 z-50 shadow-lg rounded-b-xl">
-    <nav class="container mx-auto flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold text-teal-600">CyberShield</a>
-        <div class="hidden md:flex space-x-6">
-            <a href="#tips" class="hover:text-teal-600 transition-colors">Cyber Tips</a>
-            <a href="#quiz" class="hover:text-teal-600 transition-colors">Quiz</a>
-            <a href="#tools" class="hover:text-teal-600 transition-colors">Cyber Tools</a>
-            <a href="#team" class="hover:text-teal-600 transition-colors">Team</a>
+<header class="fixed top-0 w-full z-50 nav-blur border-b border-white/20">
+    <nav class="container mx-auto flex justify-between items-center py-4 px-6">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                </svg>
+            </div>
+            <span class="text-2xl font-bold gradient-text">CyberShield</span>
         </div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#tips" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 relative group">
+                Cyber Tips
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#quiz" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 relative group">
+                Quiz
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#tools" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 relative group">
+                Cyber Tools
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#team" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 relative group">
+                Team
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </div>
+        <button class="md:hidden text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
     </nav>
 </header>
 
-<main class="container mx-auto px-4 py-8">
+<main class="pt-20">
 
     <!-- Hero Section -->
-    <section class="flex flex-col md:flex-row items-center justify-between py-12 md:py-24 space-y-8 md:space-y-0 md:space-x-12 text-center md:text-left">
-        <div class="max-w-xl">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
-                Secure Your Digital Life. <br> Know the Risks.
-            </h1>
-            <p class="text-lg text-gray-700 mb-8">
-                In today's connected world, keeping your digital life safe is very important. Learn how to stay protected from online threats and become a smart, cyber aware user.
-            </p>
-            <a href="#quiz" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full transition-all btn-hover shadow-lg">
-                Take the Quiz
-            </a>
-        </div>
-        <div class="relative w-full max-w-lg md:max-w-md mt-8 md:mt-0">
-            <img src="images/ryzen.jpg" alt="Cybersecurity illustration" class="rounded-xl shadow-2xl">
-            <div class="absolute inset-0 bg-gradient-to-tr from-gray-100 via-transparent to-transparent opacity-50 rounded-xl"></div>
+    <section class="hero-bg text-white py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto">
+                <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0 fade-in">
+                    <h1 class="text-6xl lg:text-7xl font-bold leading-tight mb-6">
+                        Secure Your
+                        <span class="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+                            Digital Life
+                        </span>
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
+                        In today's connected world, keeping your digital life safe is very important. Learn how to stay protected from online threats and become a smart, cyber aware user.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#quiz" class="btn-gradient text-white font-bold py-4 px-8 rounded-2xl inline-flex items-center space-x-2 shadow-2xl">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9.5 7.5L14.5 12l-5 4.5v-9z"/>
+                            </svg>
+                            <span>Start Your Journey</span>
+                        </a>
+                        <a href="#tools" class="glass-card text-white font-bold py-4 px-8 rounded-2xl inline-flex items-center space-x-2 hover:bg-white hover:text-gray-800 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>Explore Tools</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative fade-in stagger-2">
+                    <div class="floating-animation">
+                        <div class="relative w-full max-w-lg mx-auto">
+                            <div class="absolute inset-0 gradient-bg rounded-3xl blur-3xl opacity-30"></div>
+                            <img src="images/ryzen.jpg" alt="Cybersecurity illustration" class="rounded-xl shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Cyber Tips -->
-    <section id="tips" class="py-12">
-        <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Essential Cyber Tips</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
-                <div class="flex items-center mb-4">
-                    <svg class="w-10 h-10 text-red-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.395 2.545a1 1 0 00-1.282-1.282l-8 8a1 1 0 00-.226 1.053l1.896 4.74A1 1 0 006 17h10a1 1 0 00.957-1.353l-2.454-6.136a1 1 0 00-1.611-.277l-4.22 4.22-1.295-1.295a1 1 0 010-1.414L10.988 5.48a1 1 0 011.414 1.414l-2.4 2.4a1 1 0 00-.18.736l.24 1.2a1 1 0 001.69.576l4.22-4.22a1 1 0 00-.277-1.61L12.395 2.545z" clip-rule="evenodd"></path></svg>
-                    <h3 class="text-2xl font-semibold text-gray-900">Phishing Scams</h3>
-                </div>
-                <p class="text-gray-600">
-                    Be careful with unexpected emails, messages, or calls. Don't click on strange links or download files from people you don't know. Always double check where it's coming from.
-                </p>
+    <section id="tips" class="py-20 bg-gradient-to-b from-white/50 to-blue-50/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold gradient-text mb-6">Essential Cyber Security</h2>
             </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
-                <div class="flex items-center mb-4">
-                    <svg class="w-10 h-10 text-purple-600 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 8a6 6 0 01-7.141 5.867l-2.38 2.38a1 1 0 11-1.414-1.414l2.38-2.38A6 6 0 1118 8zm-2 0a4 4 0 10-8 0 4 4 0 008 0z" clip-rule="evenodd"></path></svg>
-                    <h3 class="text-2xl font-semibold text-gray-900">Strong Passwords</h3>
-                </div>
-                <p class="text-gray-600">
-                    Create strong and different passwords for each of your accounts. You can use a password manager to safely store them. Don't use personal details like your name or birthday as passwords.
-                </p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
-                <div class="flex items-center mb-4">
-                    <svg class="w-10 h-10 text-yellow-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-8V9a1 1 0 012 0v1a1 1 0 11-2 0zm-1-4a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1zm4 1a1 1 0 100-2h-2a1 1 0 100 2h2zm-4 4a1 1 0 110-2h2a1 1 0 110 2h-2zm4 0a1 1 0 110-2h2a1 1 0 110 2h-2zm-4 4a1 1 0 110-2h2a1 1 0 110 2h-2zm4 0a1 1 0 110-2h2a1 1 0 110 2h-2z" clip-rule="evenodd"></path></svg>
-                    <h3 class="text-2xl font-semibold text-gray-900">Two-Factor Authentication</h3>
-                </div>
-                <p class="text-gray-600">
-                    Turn on 2FA (two-factor authentication) for all your accounts. It adds extra protection by asking for a second step, like a code sent to your phone, before you can log in.
-                </p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
-                <div class="flex items-center mb-4">
-                    <svg class="w-10 h-10 text-blue-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19.261 5.253a1 1 0 00-1.414 0l-1.396 1.396a1 1 0 000 1.414l1.396 1.396a1 1 0 001.414-1.414l-1.396-1.396a1 1 0 000-1.414zM.739 5.253a1 1 0 000 1.414l1.396 1.396a1 1 0 001.414-1.414L2.153 5.253a1 1 0 00-1.414 0zM10 18a8 8 0 100-16 8 8 0 000 16zm0-10a2 2 0 100 4 2 2 0 000-4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
-                    <h3 class="text-2xl font-semibold text-gray-900">Public Wi-Fi Safety</h3>
-                </div>
-                <p class="text-gray-600">
-                    Don't log in to important accounts, like your bank or email, when using public Wi-Fi. If you need to, use a VPN to keep your data safe and protected from hackers.
-                </p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
-                <div class="flex items-center mb-4">
-                    <svg class="w-10 h-10 text-green-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 4.5A.5.5 0 0114 5v2.242c.866.447 1.697 1.054 2.404 1.832.658.711 1.066 1.637 1.096 2.617A4.502 4.502 0 0113.5 17h-2.146l2.128-2.129a.5.5 0 00-.708-.707l-3 3a.5.5 0 000 .707l3 3a.5.5 0 00.708-.707l-2.128-2.129H13.5A5.5 5.5 0 0019 11.5a5.5 5.5 0 00-5.5-5.5V5a.5.5 0 01.5-.5zM7.5 1h2A1.5 1.5 0 0111 2.5v1.275a.5.5 0 01-1 0V2.5a.5.5 0 00-.5-.5h-2a.5.5 0 00-.5.5v1.275a.5.5 0 01-1 0V2.5A1.5 1.5 0 017.5 1z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
-                    <h3 class="text-2xl font-semibold text-gray-900">Backup Data</h3>
-                </div>
-                <p class="text-gray-600">
-                    Always keep a backup of your important files. If your device gets hacked, lost, or damaged, you can still recover your data from the backup.
-                </p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
-                <div class="flex items-center mb-4">
-                    <svg class="w-10 h-10 text-teal-600 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.25l-8 4.5v9.5l8 4.5 8-4.5v-9.5l-8-4.5zm0 2.25l6 3.375v7.25l-6 3.375-6-3.375v-7.25l6-3.375z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
-                    <h3 class="text-2xl font-semibold text-gray-900">Use Antivirus Software</h3>
-                </div>
-                <p class="text-gray-600">
-                    Install antivirus software on all your devices and keep it updated. It helps find and remove viruses, malware, and other harmful programs before they can cause trouble.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <hr class="my-12 border-gray-300">
-
-    <!-- Quiz -->
-    <section id="quiz" class="py-12">
-        <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Test Your Knowledge</h2>
-        <div class="bg-white p-8 rounded-xl shadow-xl max-w-2xl mx-auto">
-            <form id="cyber-quiz">
-
-                <div class="mb-6" id="q1-container">
-                    <p class="text-lg font-semibold mb-2">1. What is phishing?</p>
-                    <label class="block mb-2"><input type="radio" name="q1" value="A" class="mr-2"> A) A type of online fishing game.</label>
-                    <label class="block mb-2"><input type="radio" name="q1" value="B" class="mr-2"> B) A malicious attempt to get sensitive information by disguising as a trustworthy entity.</label>
-                    <label class="block mb-2"><input type="radio" name="q1" value="C" class="mr-2"> C) A program that helps you organize your files.</label>
-                    <p class="text-sm italic mt-2 hidden" id="q1-feedback"></p>
-                </div>
-
-                <div class="mb-6" id="q2-container">
-                    <p class="text-lg font-semibold mb-2">2. Which of the following is an example of a strong password?</p>
-                    <label class="block mb-2"><input type="radio" name="q2" value="A" class="mr-2"> A) 12345678</label>
-                    <label class="block mb-2"><input type="radio" name="q2" value="B" class="mr-2"> B) password</label>
-                    <label class="block mb-2"><input type="radio" name="q2" value="C" class="mr-2"> C) MyP@ssw0rd!2025</label>
-                    <p class="text-sm italic mt-2 hidden" id="q2-feedback"></p>
-                </div>
-
-                <div class="mb-6" id="q3-container">
-                    <p class="text-lg font-semibold mb-2">3. What does 2FA stand for?</p>
-                    <label class="block mb-2"><input type="radio" name="q3" value="A" class="mr-2"> A) Two-Factor Authentication</label>
-                    <label class="block mb-2"><input type="radio" name="q3" value="B" class="mr-2"> B) Two-File Access</label>
-                    <label class="block mb-2"><input type="radio" name="q3" value="C" class="mr-2"> C) Time-Based Frequency</label>
-                    <p class="text-sm italic mt-2 hidden" id="q3-feedback"></p>
-                </div>
-
-                <div class="mb-6" id="q4-container">
-                    <p class="text-lg font-semibold mb-2">4. When using public Wi-Fi, what should you do to protect your data?</p>
-                    <label class="block mb-2"><input type="radio" name="q4" value="A" class="mr-2"> A) Accept all pop-ups and notifications.</label>
-                    <label class="block mb-2"><input type="radio" name="q4" value="B" class="mr-2"> B) Log into your banking account to check your balance.</label>
-                    <label class="block mb-2"><input type="radio" name="q4" value="C" class="mr-2"> C) Use a VPN to encrypt your connection.</label>
-                    <p class="text-sm italic mt-2 hidden" id="q4-feedback"></p>
-                </div>
-                
-                <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 rounded-md transition-all btn-hover shadow-lg">
-                    Submit Answers
-                </button>
-            </form>
-            <div id="quiz-results" class="mt-8 p-4 bg-gray-200 rounded-lg hidden">
-                <p id="score-text" class="text-center text-xl font-bold"></p>
-            </div>
-        </div>
-    </section>
-
-    <hr class="my-12 border-gray-300">
-
-    <!-- Cyber Tools -->
-    <section id="tools" class="py-12">
-        <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Cyber Tools</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
-                <div class="flex items-center mb-4">
-                    <svg class="w-10 h-10 text-red-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.395 2.545a1 1 0 00-1.282-1.282l-8 8a1 1 0 00-.226 1.053l1.896 4.74A1 1 0 006 17h10a1 1 0 00.957-1.353l-2.454-6.136a1 1 0 00-1.611-.277l-4.22 4.22-1.295-1.295a1 1 0 010-1.414L10.988 5.48a1 1 0 011.414 1.414l-2.4 2.4a1 1 0 00-.18.736l.24 1.2a1 1 0 001.69.576l4.22-4.22a1 1 0 00-.277-1.61L12.395 2.545z" clip-rule="evenodd"></path></svg>
-                    <h3 class="text-2xl font-semibold text-gray-900">Phishing Link Checker</h3>
-                </div>
-                <div class="space-y-4">
-                    <input type="url" id="url-input" placeholder="Enter URL to check..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
-                    <button id="check-url-btn" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all btn-hover shadow-lg">
-                        Check URL
-                    </button>
-                    <div id="url-status" class="text-center p-3 rounded-lg hidden"></div>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
-                <div class="flex items-center mb-4">
-                    <svg class="w-10 h-10 text-purple-600 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 8a6 6 0 01-7.141 5.867l-2.38 2.38a1 1 0 11-1.414-1.414l2.38-2.38A6 6 0 1118 8zm-2 0a4 4 0 10-8 0 4 4 0 008 0z" clip-rule="evenodd"></path></svg>
-                    <h3 class="text-2xl font-semibold text-gray-900">Password Strength Checker</h3>
-                </div>
-                <div class="space-y-4">
-                    <input type="password" id="password-strength-input" placeholder="Type your password..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
-                    <div class="w-full h-2 bg-gray-200 rounded-full">
-                        <div id="strength-bar" class="h-full rounded-full transition-all duration-300 ease-in-out"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-red-400 to-red-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Phishing Scams</h3>
                     </div>
-                    <p id="strength-text" class="text-center text-sm font-semibold"></p>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
-                <div class="flex items-center mb-4">
-                    <svg class="w-10 h-10 text-blue-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm1 2h10a1 1 0 010 2H5a1 1 0 010-2zM4 9a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm1 3a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                    <h3 class="text-2xl font-semibold text-gray-900">Strong Password Generator</h3>
-                </div>
-                <div class="space-y-4">
-                    <div class="relative">
-                        <input type="text" id="generated-password" readonly placeholder="Click Generate..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 bg-gray-100 cursor-text">
-                        <button id="copy-btn" class="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-lg bg-teal-500 text-white hover:bg-teal-600 transition-colors">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 2a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H8zM6 4a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2h-8a2 2 0 01-2-2V4zM4 6a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"></path></svg>
-                        </button>
+                    <p class="text-gray-600 leading-relaxed">
+                        Be careful with unexpected emails, messages, or calls. Don't click on strange links or download files from people you don't know. Always double check where it's coming from.
+                    </p>
+                    <div class="mt-6 flex items-center text-red-600 font-semibold">
                     </div>
-                    <button id="generate-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all btn-hover shadow-lg">
-                        Generate Password
-                    </button>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Strong Passwords</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Create strong and different passwords for each of your accounts. You can use a password manager to safely store them. Don't use personal details like your name or birthday as passwords.
+                    </p>
+                    <div class="mt-6 flex items-center text-purple-600 font-semibold">
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-3">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Two-Factor Authentication</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Turn on 2FA (two-factor authentication) for all your accounts. It adds extra protection by asking for a second step, like a code sent to your phone, before you can log in.
+                    </p>
+                    <div class="mt-6 flex items-center text-yellow-600 font-semibold">
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-4">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Public Wifi Safety</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Don't log in to important accounts, like your bank or email, when using public Wi-Fi. If you need to, use a VPN to keep your data safe and protected from hackers.
+                    <div class="mt-6 flex items-center text-blue-600 font-semibold">
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Backup Data</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Always keep a backup of your important files. If your device gets hacked, lost, or damaged, you can still recover your data from the backup.
+                    </p>
+                    <div class="mt-6 flex items-center text-green-600 font-semibold">
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-teal-400 to-teal-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Use Antivirus Software</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Install antivirus software on all your devices and keep it updated. It helps find and remove viruses, malware, and other harmful programs before they can cause trouble.
+                    </p>
+                    <div class="mt-6 flex items-center text-teal-600 font-semibold">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <hr class="my-12 border-gray-300">
-
-    <!-- Team -->
-    <section id="team" class="py-12">
-        <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Meet the Team</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-            <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
-                <img src="images/birendra.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
-                <h3 class="text-2xl font-semibold text-gray-900">Birendra Joshi</h3>
-                <p class="text-teal-600">Cyber leader</p>
-                <p class="text-gray-600 mt-2 text-sm">Birendra specializes a cyber leader who inspires and leads others to stay safe in the digital world by promoting awareness and responsible online behavior.</p>
+    <!-- Quiz Section -->
+    <section id="quiz" class="py-20 bg-gradient-to-b from-blue-50/50 to-indigo-50/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold gradient-text mb-6">Test Your Cyber Knowledge</h2>
             </div>
+            
+            <div class="max-w-4xl mx-auto bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-8 lg:p-12">
+                <form id="cyber-quiz" class="space-y-8">
+                    
+                    <div class="quiz-question fade-in" id="q1-container">
+                        <p class="text-2xl font-bold text-gray-800 mb-6">1. What is phishing?</p>
+                        <div class="space-y-4">
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q1" value="A" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">A type of online fishing game.</span>
+                                </div>
+                            </label>
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q1" value="B" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">A malicious attempt to get sensitive information by disguising as a trustworthy entity.</span>
+                                </div>
+                            </label>
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q1" value="C" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">A file organization software</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-600 hidden" id="q1-feedback"></div>
+                    </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
-                <img src="images/isman.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
-                <h3 class="text-2xl font-semibold text-gray-900">Isman Adhikari</h3>
-                <p class="text-teal-600">Cyber Consultant</p>
-                <p class="text-gray-600 mt-2 text-sm">Isman specializes a cyber consultant who helps people stay safe in the digital world by giving tips, solutions, and guidance on online security.</p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
-                       <img src="images/zenith.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
-                <h3 class="text-2xl font-semibold text-gray-900">Zenith Aryal</h3>
-                <p class="text-teal-600">Cyber Educator</p>
-                <p class="text-gray-600 mt-2 text-sm">Zenith specializes a cyber educator who guides people to learn safe online habits and protect themselves from digital risks.</p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
-                       <img src="images/aadar.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
-                <h3 class="text-2xl font-semibold text-gray-900">Aadar Poudel</h3>
-                <p class="text-teal-600">Cyber Researcher</p>
-                <p class="text-gray-600 mt-2 text-sm">Aadar specializes a cyber researcher studies threats and shares correct, updated knowledge to keep people safe online.</p>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<!-- Footer -->
-<footer class="bg-white text-center py-6 text-gray-600 border-t border-gray-300 rounded-t-xl mt-8">
-    <div class="container mx-auto px-4">
-        <p>&copy; 2025 CyberShield | Empowering you to stay safe online.</p>
-        <p class="text-sm mt-2">Disclaimer: The information provided is for educational purposes only.</p>
-    </div>
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+                    <div class="quiz-question fade-in stagger-1" id="q2-container">
+                        <p class="text-2xl font-bold text-gray-800 mb-6">2. Which password demonstrates the strongest security?</p>
+                        <div class="space-y-4">
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q2" value="A" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">12345678</span>
+                                </div>
+                            </label>
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q2" value="B" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2
