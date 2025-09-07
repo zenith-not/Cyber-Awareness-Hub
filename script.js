@@ -1,4 +1,4 @@
-// Quiz
+// Quiz 
 document.addEventListener('DOMContentLoaded', function() {
     const quizForm = document.getElementById('cyber-quiz');
     const resultsDiv = document.getElementById('quiz-results');
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scoreText.textContent = `You scored ${score} out of ${totalQuestions}!`;
     });
 
-    //phising link 
+    // Phishing Link
     const checkUrlBtn = document.getElementById('check-url-btn');
     const urlInput = document.getElementById('url-input');
     const urlStatus = document.getElementById('url-status');
@@ -66,17 +66,21 @@ document.addEventListener('DOMContentLoaded', function() {
         let isPhishing = false;
         let reasons = [];
 
+        // Check 1
         const ipPattern = /^(http|https):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
         if (ipPattern.test(url)) {
             isPhishing = true;
             reasons.push("The URL uses an IP address instead of a proper domain name.");
         }
+
+        // Check 2
         if (url.startsWith('http://') && !url.includes('localhost')) {
             isPhishing = true;
             reasons.push("The URL is not secure (uses HTTP instead of HTTPS).");
         }
 
-        const brandKeywords = ['google', 'Daraz', 'apple', ' facebook', 'microsoft ', 'Esewa' , 'Nepal Telecom', 'khalti', 'twitter', 'instagram'];
+        // Check 3
+        const brandKeywords = ['google', 'amazon', 'apple', 'paypal', 'microsoft'];
         const urlLower = url.toLowerCase();
         for (let brand of brandKeywords) {
             if (urlLower.includes(brand) && !urlLower.includes(`.${brand}.com`)) {
@@ -85,4 +89,85 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             }
         }
-    
+        
+        // Final
+        if (isPhishing) {
+            urlStatus.innerHTML = '<strong>⚠️ Potentially Unsafe URL Detected.</strong><br>' + reasons.join('<br>');
+            urlStatus.className = 'text-center p-3 rounded-lg block bg-red-200 text-red-800';
+        } else {
+            urlStatus.textContent = '✅ The URL appears to be safe based on basic checks.';
+            urlStatus.className = 'text-center p-3 rounded-lg block bg-green-200 text-green-800';
+        }
+    });
+
+    // Password Strength
+    const passwordStrengthInput = document.getElementById('password-strength-input');
+    const strengthBar = document.getElementById('strength-bar');
+    const strengthText = document.getElementById('strength-text');
+
+    passwordStrengthInput.addEventListener('input', () => {
+        const password = passwordStrengthInput.value;
+        if (password.length === 0) {
+            strengthBar.style.width = '0%';
+            strengthText.textContent = '';
+            strengthBar.className = 'h-full rounded-full transition-all duration-300 ease-in-out';
+            strengthText.className = 'text-center text-sm font-semibold';
+            return;
+        }
+        
+        let score = 0;
+        const requirements = {
+            length: password.length >= 8,
+            uppercase: /[A-Z]/.test(password),
+            lowercase: /[a-z]/.test(password),
+            number: /[0-9]/.test(password),
+            special: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)
+        };
+
+        if (requirements.length) score++;
+        if (requirements.uppercase) score++;
+        if (requirements.lowercase) score++;
+        if (requirements.number) score++;
+        if (requirements.special) score++;
+
+        const clampedScore = Math.max(0, Math.min(score, 5));
+        
+        const strength = ['Very Weak', 'Weak', 'Average', 'Good', 'Strong', 'Excellent'];
+        const colors = ['bg-gray-400', 'bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-lime-500', 'bg-teal-500'];
+        
+        strengthBar.style.width = `${(clampedScore / 5) * 100}%`;
+        strengthBar.className = `${colors[clampedScore]} h-full rounded-full transition-all duration-300 ease-in-out`;
+        strengthText.textContent = strength[clampedScore];
+        strengthText.className = `text-center text-sm font-semibold ${colors[clampedScore].replace('bg', 'text')}`;
+    });
+
+    // Strong Password
+    const generateBtn = document.getElementById('generate-btn');
+    const generatedPasswordInput = document.getElementById('generated-password');
+    const copyBtn = document.getElementById('copy-btn');
+
+    generateBtn.addEventListener('click', () => {
+        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        let password = "";
+        for (let i = 0; i < 16; i++) {
+            password += charset[Math.floor(Math.random() * charset.length)];
+        }
+        generatedPasswordInput.value = password;
+        passwordStrengthInput.value = password;
+        passwordStrengthInput.dispatchEvent(new Event('input'));
+    });
+
+    copyBtn.addEventListener('click', () => {
+        if (generatedPasswordInput.value) {
+            navigator.clipboard.writeText(generatedPasswordInput.value).then(() => {
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    });
+});
