@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Quiz 
+    / 
     const quizForm = document.getElementById('cyber-quiz');
     const quizResults = document.getElementById('quiz-results');
     const scoreText = document.getElementById('score-text');
     
-    // Quiz answers 
+
     const correctAnswers = {
         q1: 'B', 
         q2: 'C', 
@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         q4: 'C'  
     };
     
-    // Handle quiz 
     if (quizForm) {
         quizForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -29,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Calculate 
+       
             const percentage = (score / totalQuestions) * 100;
             
-            // Display results
+ 
             quizResults.classList.remove('hidden');
             scoreText.textContent = `You scored ${score} out of ${totalQuestions} (${percentage}%)`;
             
@@ -83,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Password Strength Checker
     const passwordInput = document.getElementById('password-strength-input');
     const strengthBar = document.getElementById('strength-bar');
     const strengthText = document.getElementById('strength-text');
@@ -149,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // URL Checker 
+   
     const urlInput = document.getElementById('url-input');
     const checkUrlBtn = document.getElementById('check-url-btn');
     const urlStatus = document.getElementById('url-status');
@@ -264,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Mobile menu toggle 
+
     const mobileMenuBtn = document.querySelector('.md\\:hidden button');
     const mobileMenu = document.querySelector('.hidden.md\\:flex');
     
@@ -482,5 +480,6 @@ window.CyberShield = {
             day: 'numeric'
         });
     }
+
 
 };
