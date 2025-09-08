@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -256,90 +257,117 @@
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-5xl font-bold gradient-text mb-6">Essential Cyber Security</h2>
             </div>
+        </section>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-1">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-red-400 to-red-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
+            <!-- Phishing Protection -->
+                    <div class="glass-effect p-8 rounded-2xl shadow-2xl card-hover fade-in-up">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Phishing Scams</h3>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Phishing Scams</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Be careful with unexpected emails, messages, or calls. Don't click on strange links or download files from people you don't know. Always double check where it's coming from.
+                        </p>
+                        <div class="bg-red-50 p-4 rounded-lg">
+                        </div>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Be careful with unexpected emails, messages, or calls. Don't click on strange links or download files from people you don't know. Always double check where it's coming from.
-                    </p>
-                    <div class="mt-6 flex items-center text-red-600 font-semibold">
-                    </div>
-                </div>
+                </section>
 
-                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-2">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                    <!-- Password Security -->
+                    <div class="glass-effect p-8 rounded-2xl shadow-2xl card-hover fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Strong Passwords</h3>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Strong Passwords</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Create strong and different passwords for each of your accounts. You can use a password manager to safely store them. Don’t use personal details like your name or birthday as passwords.
+                        </p>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                        </div>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Create strong and different passwords for each of your accounts. You can use a password manager to safely store them. Don't use personal details like your name or birthday as passwords.
-                    </p>
-                    <div class="mt-6 flex items-center text-purple-600 font-semibold">
-                    </div>
-                </div>
+                </section>
 
-                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-3">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                    <!-- Two-Factor Authentication -->
+                    <div class="glass-effect p-8 rounded-2xl shadow-2xl card-hover fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11.5 6a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm-3 8.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Two-Factor Authentication</h3>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Two-Factor Authentication</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Turn on 2FA (two-factor authentication) for all your accounts. It adds extra protection by asking for a second step, like a code sent to your phone, before you can log in.
+                        </p>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Turn on 2FA (two-factor authentication) for all your accounts. It adds extra protection by asking for a second step, like a code sent to your phone, before you can log in.
-                    </p>
-                    <div class="mt-6 flex items-center text-yellow-600 font-semibold">
-                    </div>
-                </div>
+                </section>
 
-                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-4">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                    <!-- Wi-Fi Security -->
+                    <div class="glass-effect p-8 rounded-2xl shadow-2xl card-hover fade-in-up" style="animation-delay: 0.3s;">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M17.778 8.222c-4.296-4.296-11.26-4.296-15.556 0A1 1 0 01.808 6.808c5.076-5.077 13.308-5.077 18.384 0a1 1 0 01-1.414 1.414zM14.95 11.05a7 7 0 00-9.9 0 1 1 0 01-1.414-1.414 9 9 0 0112.728 0 1 1 0 01-1.414 1.414zM12.12 13.88a3 3 0 00-4.242 0 1 1 0 01-1.415-1.415 5 5 0 017.072 0 1 1 0 01-1.415 1.415zM9 16a1 1 0 112 0 1 1 0 01-2 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Public Wifi Security</h3>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Public Wifi Safety</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Don’t log in to important accounts, like your bank or email, when using public Wi-Fi. If you need to, use a VPN to keep your data safe and protected from hackers.
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                        </div>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Don't log in to important accounts, like your bank or email, when using public Wi-Fi. If you need to, use a VPN to keep your data safe and protected from hackers.
-                    <div class="mt-6 flex items-center text-blue-600 font-semibold">
-                    </div>
-                </div>
+                </section>
 
-                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-1">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                    <!-- Data Backup -->
+                    <div class="glass-effect p-8 rounded-2xl shadow-2xl card-hover fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Backup Data</h3>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Backup Data</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Always make a copy of your important files. That way, if your device gets hacked, lost, or broken, you can easily get your data back.
+                        </p>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                        </div>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Always keep a backup of your important files. If your device gets hacked, lost, or damaged, you can still recover your data from the backup.
-                    </p>
-                    <div class="mt-6 flex items-center text-green-600 font-semibold">
-                    </div>
-                </div>
+                </section>
 
-                <div class="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl hover-lift card-hover fade-in stagger-2">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-teal-400 to-teal-600 rounded-2xl flex items-center justify-center mr-4 icon-bounce">
+                    <!-- Antivirus Protection -->
+                    <div class="glass-effect p-8 rounded-2xl shadow-2xl card-hover fade-in-up" style="animation-delay: 0.5s;">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-2xl flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Use Antivirus</h3>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Use Antivirus Software</h3>
-                    </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Install antivirus software on all your devices and keep it updated. It helps find and remove viruses, malware, and other harmful programs before they can cause trouble.
-                    </p>
-                    <div class="mt-6 flex items-center text-teal-600 font-semibold">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Install antivirus software on all your devices and keep it updated. It helps find and remove viruses, malware, and other harmful programs before they can cause trouble.
+                        </p>
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
 
     <!-- Quiz Section -->
     <section id="quiz" class="py-20 bg-gradient-to-b from-blue-50/50 to-indigo-50/50">
@@ -386,7 +414,7 @@
                     </div>
 
                     <div class="quiz-question fade-in stagger-1" id="q2-container">
-                        <p class="text-2xl font-bold text-gray-800 mb-6">2. Which password demonstrates the strongest security?</p>
+                        <p class="text-2xl font-bold text-gray-800 mb-6">2. Which of the following is an example of a strong password?</p>
                         <div class="space-y-4">
                             <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
                                 <input type="radio" name="q2" value="A" class="hidden">
@@ -400,4 +428,190 @@
                             <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
                                 <input type="radio" name="q2" value="B" class="hidden">
                                 <div class="flex items-center">
-                                    <div class="w-6 h-6 border-2
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">password</span>
+                                </div>
+                            </label>
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q2" value="B" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">My@paSsWorD$#</span>
+                                </div>
+                            </label>
+                    
+                    <div class="quiz-question fade-in stagger-1" id="q3-container">
+                        <p class="text-2xl font-bold text-gray-800 mb-6">3. What does 2FA stand for?</p>
+                        <div class="space-y-4">
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q2" value="A" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">Two-Factor Authentication</span>
+                                </div>
+                            </label>
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q2" value="B" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">Two-File Access</span>
+                                </div>
+                            </label>
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q2" value="B" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">Time-Based Frequency</span>
+                                </div>
+                            </label>
+                    <div class="quiz-question fade-in stagger-1" id="q4-container">
+                        <p class="text-2xl font-bold text-gray-800 mb-6">4. When using public Wi-Fi, what should you do to protect your data?</p>
+                        <div class="space-y-4">
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q2" value="A" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">Accept all pop-ups and notifications</span>
+                                </div>
+                            </label>
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q2" value="B" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">Log into your banking account to check your balance</span>
+                                </div>
+                            </label>
+                            <label class="quiz-option block p-4 rounded-2xl cursor-pointer">
+                                <input type="radio" name="q2" value="B" class="hidden">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="text-lg">Use a VPN to encrypt your connection</span>
+                                </div>
+                            </label>
+
+                            <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 rounded-md transition-all btn-hover shadow-lg">
+                        Submit Answers
+                    </button>
+                </form>
+                <div id="quiz-results" class="mt-8 p-4 bg-gray-100 rounded-lg hidden">
+                    <p id="score-text" class="text-center text-xl font-bold"></p>
+                    <div id="detailed-results" class="mt-4"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cyber Tools Section -->
+        <section id="tools" class="py-12">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Cyber Tools</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+                </section>
+                
+                <!-- Phishing Link Checker -->
+                <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-10 h-10 text-red-500 mr-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold text-gray-900">Phishing Link Checker</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <input type="url" id="url-input" placeholder="Enter URL to check..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        <button id="check-url-btn" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all btn-hover shadow-lg">
+                            Check URL
+                        </button>
+                        <div id="url-status" class="text-center p-3 rounded-lg hidden"></div>
+                    </div>
+                </div>
+            </section>
+
+                <!-- Password Strength Checker -->
+                <div class="bg-white p-8 rounded-xl shadow-xl card-glow">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-10 h-10 text-purple-600 mr-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        <h3 class="text-2xl font-semibold text-gray-900">Password Strength Checker</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <input type="password" id="password-strength-input" placeholder="Type your password..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        <div class="w-full h-2 bg-gray-200 rounded-full">
+                            <div id="strength-bar" class="h-full rounded-full transition-all duration-300 ease-in-out"></div>
+                        </div>
+                        <p id="strength-text" class="text-center text-sm font-semibold"></p>
+                    </div>
+                </div>
+            </section>
+
+
+        <!-- Team Section -->
+        <section id="team" class="py-12">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-10">Meet the Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Team Member 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500 bg-gradient-to-br from-teal-400 to-blue-600 flex items-center justify-center">
+                        <img src="images/birendra.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900">Birendra Joshi</h3>
+                    <p class="text-teal-600">Cyber Leader</p>
+                    <p class="text-gray-600 mt-2 text-sm">Birendra specializes as a cyber leader who inspires and leads others to stay safe in the digital world by promoting awareness and responsible online behavior.</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500 bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center">
+                        <img src="images/isman.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900">Isman Adhikari</h3>
+                    <p class="text-teal-600">Cyber Consultant</p>
+                    <p class="text-gray-600 mt-2 text-sm">Isman specializes as a cyber consultant who helps people stay safe in the digital world by giving tips, solutions, and guidance on online security.</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500 bg-gradient-to-br from-green-400 to-blue-600 flex items-center justify-center">
+                        <img src="images/zenith.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900">Zenith Aryal</h3>
+                    <p class="text-teal-600">Cyber Educator</p>
+                    <p class="text-gray-600 mt-2 text-sm">Zenith specializes as a cyber educator who teaches people about safe online habits in a simple and clear way. They help others understand how to protect themselves from digital risks and build smart cyber practices.</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center card-glow">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500 bg-gradient-to-br from-yellow-400 to-orange-600 flex items-center justify-center">
+                        <img src="images/aadar.jpg" alt="Team member photo" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-teal-500">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900">Aadar Poudel</h3>
+                    <p class="text-teal-600">Cyber Researcher</p>
+                    <p class="text-gray-600 mt-2 text-sm">Aadar specializes as a cyber researcher who gathers facts and real examples to help people understand online risks clearly.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-center py-6 text-gray-600 border-t border-gray-300 rounded-t-xl mt-8">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 CyberShield | Empowering you to stay safe online.</p>
+            <p class="text-sm mt-2">Disclaimer: The information provided is for educational purposes only.</p>
+        </div>
+    </footer>
