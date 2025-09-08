@@ -149,60 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Password Generator
-    const generateBtn = document.getElementById('generate-btn');
-    const generatedPassword = document.getElementById('generated-password');
-    const copyBtn = document.getElementById('copy-btn');
-    
-    if (generateBtn && generatedPassword) {
-        generateBtn.addEventListener('click', function() {
-            const password = generateStrongPassword();
-            generatedPassword.value = password;
-        });
-    }
-    
-    if (copyBtn && generatedPassword) {
-        copyBtn.addEventListener('click', function() {
-            generatedPassword.select();
-            document.execCommand('copy');
-            
-            
-            const originalText = copyBtn.innerHTML;
-            copyBtn.innerHTML = '✓';
-            copyBtn.style.background = '#10b981';
-            
-            setTimeout(() => {
-                copyBtn.innerHTML = originalText;
-                copyBtn.style.background = '#14b8a6';
-            }, 1500);
-        });
-    }
-    
-    function generateStrongPassword() {
-        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-        const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const numbers = '0123456789';
-        const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?';
-        
-        let password = '';
-        const allChars = lowercase + uppercase + numbers + symbols;
-        
-      
-        password += lowercase[Math.floor(Math.random() * lowercase.length)];
-        password += uppercase[Math.floor(Math.random() * uppercase.length)];
-        password += numbers[Math.floor(Math.random() * numbers.length)];
-        password += symbols[Math.floor(Math.random() * symbols.length)];
-        
-       
-        const remainingLength = Math.floor(Math.random() * 5) + 8; // 8-12 additional chars
-        for (let i = password.length; i < remainingLength; i++) {
-            password += allChars[Math.floor(Math.random() * allChars.length)];
-        }
-        
-       
-        return password.split('').sort(() => Math.random() - 0.5).join('');
-    }
-    
     // URL Checker 
     const urlInput = document.getElementById('url-input');
     const checkUrlBtn = document.getElementById('check-url-btn');
