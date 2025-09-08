@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    / 
     const quizForm = document.getElementById('cyber-quiz');
     const quizResults = document.getElementById('quiz-results');
     const scoreText = document.getElementById('score-text');
@@ -483,3 +482,4 @@ window.CyberShield = {
 
 
 };
+
