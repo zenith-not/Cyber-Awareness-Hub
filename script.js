@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let score = 0;
             let totalQuestions = Object.keys(correctAnswers).length;
-            
-            // Check 
             for (let question in correctAnswers) {
                 const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
                 if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
@@ -482,4 +480,5 @@ window.CyberShield = {
 
 
 };
+
 
